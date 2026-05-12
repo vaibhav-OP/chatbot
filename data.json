@@ -1,0 +1,32 @@
+[
+  {
+    "questions": 
+      "How can I get a refund?",
+    "answers": 
+      "You can request a refund from the settings page."
+  },
+  {
+    "questions":  
+      "Where is my order?",
+    "answers":    
+      "You can track your order from the orders section."
+  },
+  {
+    "questions":  
+      "How do I change my password?",
+    "answers":    
+      "Go to account settings and click change password."
+  },
+  {
+    "questions":  
+      "What payment methods do you support?",
+    "answers":     
+      "We support credit cards, PayPal, and UPI."
+  },
+  {
+    "questions":  
+      "How long does shipping take?",
+    "answers":     
+      "Shipping usually takes 3-5 business days."
+  }
+]
