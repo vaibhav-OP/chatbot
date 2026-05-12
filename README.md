@@ -1,4 +1,4 @@
-# Semantic Q&A Chatbot
+# Simple Semantic Q&A Chatbot
 
 This is a simple semantic Q&A chatbot built using FastAPI and Sentence Transformers.
 
