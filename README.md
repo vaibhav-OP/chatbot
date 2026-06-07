@@ -33,8 +33,8 @@ pip --version
 ## Clone the Repository
 
 ```bash
-git clone <your-repository-url>
-cd <project-folder>
+git clone https://github.com/vaibhav-OP/chatbot.git
+cd chatbot
 ```
 
 ## Create a Virtual Environment
