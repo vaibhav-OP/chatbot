@@ -39,7 +39,7 @@ def ask_chatbot(question):
   
   if confidence < 0.4:
     return {
-        "answer": "The assistant did'nt understood the question",
+        "answer": "The assistant didn't understood the question",
         "confidence": float(confidence)
     }
 
