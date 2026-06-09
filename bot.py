@@ -5,7 +5,7 @@ import json
 import os
 import uvicorn
 
-with open("alinquality_chatbot_training_dataset(1).json", "r") as f:
+with open("data.json", "r") as f:
     data = json.load(f)
 
 questions = []
