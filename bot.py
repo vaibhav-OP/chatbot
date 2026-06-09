@@ -1,15 +1,22 @@
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer # type: ignore
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import json
 import os
 import uvicorn
 
-with open("data.json", "r") as f:
+with open("alinquality_chatbot_training_dataset(1).json", "r") as f:
     data = json.load(f)
 
-questions = [item["questions"] for item in data]
-answers = [item["answers"] for item in data]
+questions = []
+answers = []
+answers_table = []
+
+for index, item in enumerate(data):
+    answers.append(item["answers"])
+    for question in item["questions"]:
+        questions.append(question)
+        answers_table.append(index)
 
 embedding_model = SentenceTransformer('all-mpnet-base-v2')
 
@@ -18,12 +25,7 @@ cached_embedding_filename = "embeddings.npy"
 if not os.path.isfile(cached_embedding_filename):
     print("------------------Generating embeddings...------------------")
     
-    search_text = [
-        f"{item['questions']} {item['answers']}"
-        for item in data
-    ]
-    
-    embeddings = embedding_model.encode(search_text, normalize_embeddings=True)
+    embeddings = embedding_model.encode(questions, normalize_embeddings=True)
     np.save(cached_embedding_filename, embeddings)
 question_embeddings = np.load(cached_embedding_filename)
 
@@ -37,11 +39,11 @@ def ask_chatbot(question):
   
   if confidence < 0.4:
     return {
-        "answer": "I dont understand the question :(",
+        "answer": "The assistant did'nt understood the question",
         "confidence": float(confidence)
     }
 
   return {
-    "answer": answers[best_match_index],
+    "answer": answers[answers_table[best_match_index]],
     "confidence": float(confidence)
   }

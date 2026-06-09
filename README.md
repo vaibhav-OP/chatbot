@@ -9,7 +9,7 @@ The project also caches embeddings locally to avoid regenerating vectors every t
 ## Features
 
 * Semantic question matching
-* Sentence embeddings using `all-MiniLM-L6-v2`
+* Sentence embeddings using `all-mpnet-base-v2`
 * FastAPI REST API
 * Embedding caching with NumPy
 * Cosine similarity search
